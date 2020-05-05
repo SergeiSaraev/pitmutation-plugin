@@ -1,5 +1,5 @@
 # pitmutation-jenkins
-[![release](http://github-release-version.herokuapp.com/github/jenkinsci/pitmutation-plugin/release.svg?style=flat)](https://github.com/jenkinsci/pitmutation-plugin/releases/latest) [![Build Status](https://ci.jenkins.io/buildStatus/icon?job=Plugins/pitmutation-plugin/master)](https://ci.jenkins.io/job/Plugins/pitmutation-plugin/master)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/jenkinsci/pitmutation-plugin?label=release) [![Build Status](https://ci.jenkins.io/job/Plugins/job/pitmutation-plugin/job/master/badge/icon)](https://ci.jenkins.io/job/Plugins/job/pitmutation-plugin/job/master/)
 
 [PIT Mutation](http://pitest.org/) reporting plugin for Jenkins.
 
@@ -12,12 +12,12 @@ You can use the following step in pipeline to use this plugin in pipeline:
 
 `pitmutation killRatioMustImprove: false, minimumKillRatio: 50.0, mutationStatsFile: '**/target/pit-reports/**/mutations.xml'`
 
-The plugin needs the XML and HTML output from PIT. Also make sure 
-that a clean target is executed before building, otherwise PIT will 
+The plugin needs the XML and HTML output from PIT. Also make sure
+that a clean target is executed before building, otherwise PIT will
 keep all of the old reports and it may not pick up the right one.
 
 The report shows mutation statistics with the change since the last successful build,
-and you can drill down to the annotated source code at class level to see what mutations 
+and you can drill down to the annotated source code at class level to see what mutations
 happened on each line.
 
 ## Development

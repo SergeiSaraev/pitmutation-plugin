@@ -1,11 +1,13 @@
-<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:l="/lib/layout"
->
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:l="/lib/layout">
     <l:layout title="">
         <st:include it="${it.owner}" page="sidepanel.jelly"/>
         <l:main-panel>
             <h1>${it.displayName}</h1>
-            <j:forEach var="parent" items="${it.parents}">
+            <j:forEach var="parent" items="${it.parents}" indexVar="i">
                 <a href="${it.relativeUrl(parent)}">${parent.xmlTransform(parent.name)}</a>
+                <j:if test="${i != it.parents.size() - 1}">
+                    <b> / </b>
+                </j:if>
             </j:forEach>
             <h2>Mutation Statistics</h2>
             <table>

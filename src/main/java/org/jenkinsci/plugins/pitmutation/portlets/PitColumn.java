@@ -10,6 +10,8 @@ import org.jenkinsci.plugins.pitmutation.PitBuildAction;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.awt.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -33,9 +35,7 @@ public class PitColumn extends ListViewColumn {
             return null;
         }
 
-        final PitBuildAction action = lastSuccessfulBuild.getAction(PitBuildAction.class);
-
-        return action;
+        return lastSuccessfulBuild.getAction(PitBuildAction.class);
     }
 
     public boolean hasCoverage(final Job<?, ?> job) {
@@ -98,8 +98,7 @@ public class PitColumn extends ListViewColumn {
     @Extension
     public static class DescriptorImpl extends ListViewColumnDescriptor {
         @Override
-        public ListViewColumn newInstance(final StaplerRequest req,
-                                          final JSONObject formData) throws FormException {
+        public ListViewColumn newInstance(@Nullable final StaplerRequest req, @Nonnull final JSONObject formData) {
             return new PitColumn();
         }
 
@@ -108,6 +107,7 @@ public class PitColumn extends ListViewColumn {
             return false;
         }
 
+        @Nonnull
         @Override
         public String getDisplayName() {
             return "Pit Mutation Coverage";
